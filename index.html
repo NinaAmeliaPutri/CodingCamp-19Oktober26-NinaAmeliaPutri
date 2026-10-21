@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-left">
+      <div id="clock" class="clock"></div>
+      <div id="date-display" class="date-display"></div>
+    </div>
+    <div class="header-right">
+      <button id="theme-toggle" class="btn btn-icon" title="Toggle Theme" aria-label="Toggle Light/Dark Mode">
+        <span id="theme-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+    <!-- Greeting + Name -->
+    <section class="greeting-section card">
+      <h1 id="greeting" class="greeting"></h1>
+      <div class="name-row">
+        <input
+          id="name-input"
+          class="input"
+          type="text"
+          placeholder="Masukkan namamu…"
+          maxlength="40"
+          aria-label="Input nama"
+        />
+        <button id="save-name-btn" class="btn btn-primary">Simpan</button>
+      </div>
+    </section>
+
+    <!-- Two-column layout -->
+    <div class="grid-2">
+
+      <!-- ===== POMODORO ===== -->
+      <section class="card pomodoro-card">
+        <h2 class="section-title">⏱ Focus Timer</h2>
+        <div class="timer-display" id="timer-display" aria-live="polite">25:00</div>
+        <div class="timer-label" id="timer-label">Pomodoro · 25 menit</div>
+        <div class="timer-controls">
+          <button id="start-btn" class="btn btn-primary" aria-label="Mulai timer">▶ Start</button>
+          <button id="stop-btn"  class="btn btn-secondary" aria-label="Hentikan timer">⏸ Stop</button>
+          <button id="reset-btn" class="btn btn-outline"   aria-label="Reset timer">↺ Reset</button>
+        </div>
+      </section>
+
+      <!-- ===== QUICK LINKS ===== -->
+      <section class="card links-card">
+        <h2 class="section-title">🔗 Quick Links</h2>
+        <div class="link-form">
+          <input
+            id="link-name-input"
+            class="input"
+            type="text"
+            placeholder="Nama link…"
+            maxlength="30"
+            aria-label="Nama quick link"
+          />
+          <input
+            id="link-url-input"
+            class="input"
+            type="url"
+            placeholder="https://…"
+            aria-label="URL quick link"
+          />
+          <button id="add-link-btn" class="btn btn-primary">+ Tambah</button>
+        </div>
+        <ul id="links-list" class="links-list" aria-label="Daftar quick links"></ul>
+      </section>
+
+    </div><!-- /grid-2 -->
+
+    <!-- ===== TO-DO LIST ===== -->
+    <section class="card todo-card">
+      <h2 class="section-title">✅ To-Do List</h2>
+      <div class="todo-form">
+        <input
+          id="todo-input"
+          class="input"
+          type="text"
+          placeholder="Tambah tugas baru…"
+          maxlength="120"
+          aria-label="Input tugas baru"
+        />
+        <button id="add-todo-btn" class="btn btn-primary">+ Tambah</button>
+      </div>
+      <div id="duplicate-msg" class="duplicate-msg" role="alert" aria-live="assertive"></div>
+      <ul id="todo-list" class="todo-list" aria-label="Daftar tugas"></ul>
+      <div id="todo-footer" class="todo-footer"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== EDIT MODAL ===== -->
+  <div id="edit-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <h3 id="modal-title" class="modal-title">Edit Tugas</h3>
+      <input id="edit-input" class="input" type="text" maxlength="120" aria-label="Edit tugas" />
+      <div class="modal-actions">
+        <button id="modal-save-btn" class="btn btn-primary">Simpan</button>
+        <button id="modal-cancel-btn" class="btn btn-outline">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Life Dashboard &copy; <span id="footer-year"></span></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
